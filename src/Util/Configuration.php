@@ -383,6 +383,18 @@ class PHPUnit_Util_Configuration
                         90
                     );
                 }
+
+                //Specify which prefix from the aboslute path of Nodes should be replaced
+                //by following project name in Code Coverage HTML report's breadcrumb.
+                // See PHP_CodeCoverage_Report_HTML_Renderer in Code Coverage module.
+                // Example: /home/gabriel/github/figdice/src / SomeFile.php
+                // replaced with: FigDice / SomeFile.php
+                if ($log->hasAttribute('absoluteRoot')) {
+                    $result['absoluteRoot'] = (string) $log->getAttribute('absoluteRoot');
+                }
+                if ($log->hasAttribute('projectPrefix')) {
+                    $result['projectPrefix'] = (string) $log->getAttribute('projectPrefix');
+                }
             } elseif ($type == 'coverage-crap4j') {
                 if ($log->hasAttribute('threshold')) {
                     $result['crap4jThreshold'] = $this->getInteger(
@@ -390,6 +402,7 @@ class PHPUnit_Util_Configuration
                         30
                     );
                 }
+
             } elseif ($type == 'junit') {
                 if ($log->hasAttribute('logIncompleteSkipped')) {
                     $result['logIncompleteSkipped'] = $this->getBoolean(
