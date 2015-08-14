@@ -44,6 +44,8 @@ class PHPUnit_TextUI_Command
         'coverage-php='        => null,
         'coverage-text=='      => null,
         'coverage-xml='        => null,
+        'coverage-absolute-root=' => null,
+        'coverage-project-prefix=' => null,
         'debug'                => null,
         'exclude-group='       => null,
         'filter='              => null,
@@ -290,6 +292,14 @@ class PHPUnit_TextUI_Command
 
                 case '--coverage-xml':
                     $this->arguments['coverageXml'] = $option[1];
+                    break;
+
+                case '--coverage-absolute-root':
+                    $this->arguments['coverageAbsoluteRoot'] = $option[1];
+                    break;
+
+                case '--coverage-project-prefix':
+                    $this->arguments['coverageProjectPrefix'] = $option[1];
                     break;
 
                 case 'd':
