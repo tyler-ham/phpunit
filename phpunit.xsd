@@ -128,6 +128,8 @@
       </xs:simpleType>
     </xs:attribute>
     <xs:attribute name="target" type="xs:anyURI"/>
+    <xs:attribute name="projectPrefix" type="xs:string"/>
+    <xs:attribute name="absoluteRoot" type="xs:string"/>
     <xs:attribute name="lowUpperBound" type="xs:nonNegativeInteger" default="35"/>
     <xs:attribute name="highLowerBound" type="xs:nonNegativeInteger" default="70"/>
     <xs:attribute name="logIncompleteSkipped" type="xs:boolean" default="false"/>
